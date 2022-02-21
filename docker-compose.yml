@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  moralis_auth_client:
+    image: moralis-auth-client
+    ports:
+      - "5400:80"
+    restart: always
