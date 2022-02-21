@@ -4,18 +4,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {MoralisProvider} from "react-moralis";
 
+const APP_ID = process.env.REACT_APP_MORALIS_APPLICATION_ID;
+const SERVER_URL = process.env.REACT_APP_MORALIS_SERVER_URL;
 
-const moralisAppId = "JlNfKUXVfWwMQetTWnX3Hi90kH28CwXBC5g8q83i";
-const moralisServerUrl = "https://dfsxdbakrjnk.usemoralis.com:2053/server";
+const Application = () => {
+    if (!APP_ID || !SERVER_URL) throw new Error("Missing Moralis Application ID or Server URL. Make sure to set your .env file.");
+    return <MoralisProvider appId={APP_ID} serverUrl={SERVER_URL}><App/></MoralisProvider>
+}
 
 ReactDOM.render(
-    <MoralisProvider appId={moralisAppId} serverUrl={moralisServerUrl}>
-        <App/>
-    </MoralisProvider>,
+    <Application/>,
     document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
