@@ -6,8 +6,8 @@ import {styled} from '@mui/system';
 const ButtonRoot = React.forwardRef(function ButtonRoot(props, ref) {
     const {children, ...other} = props;
 
-    return (
-        <svg width="150" height="50" {...other} ref={ref} style={{boxShadow: "5px 5px 10px blue"}}>
+    return (   // @ts-ignore
+        <svg width="150" height="50" {...other} ref={ref} style={{boxShadow: "5px 5px 10px red"}}>
             <polygon points="0,50 0,0 150,0 150,50" className="bg"/>
             <polygon points="0,50 0,0 150,0 150,50" className="borderEffect"/>
             <foreignObject x="0" y="0" width="150" height="50">
@@ -16,18 +16,16 @@ const ButtonRoot = React.forwardRef(function ButtonRoot(props, ref) {
         </svg>
     );
 });
-
-ButtonRoot.propTypes = {
-    children: PropTypes.node,
-};
+// @ts-ignore
+ButtonRoot.propTypes = {children: PropTypes.node,};
 
 const blue = {
-    50: 'rgba(83,213,21,0.58)',
+    50: 'rgba(255,113,113,0.49)',
     100: 'rgba(132,255,0,0.47)', //100: '#C2E0FF',
     200: '#99CCF3',
     400: '#3399FF',
     500: '#007FFF',
-    600: '#0072E5', //600: '#0072E5',
+    600: '#ff0000', //600: '#0072E5',
     800: '#004C99',
     900: '#003A75', //900: '#003A75',
 };
@@ -102,6 +100,12 @@ const SvgButton = React.forwardRef(function SvgButton(props, ref) {
     return <ButtonUnstyled {...props} component={CustomButtonRoot} ref={ref}/>;
 });
 
-export default function LoginEmailButton(props) {
+interface Props {
+    title: string;
+    onClick: React.MouseEventHandler<HTMLDivElement> | undefined
+}
+
+export default function CancelButton(props: Props) {
+    // @ts-ignore
     return <div onClick={props.onClick}><SvgButton>{props.title}</SvgButton></div>;
 }

@@ -2,45 +2,37 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import ButtonUnstyled, {buttonUnstyledClasses} from '@mui/base/ButtonUnstyled';
 import {styled} from '@mui/system';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
 
 const ButtonRoot = React.forwardRef(function ButtonRoot(props, ref) {
     const {children, ...other} = props;
 
-    return (
-        <svg width="50" height="50" {...other} ref={ref} style={{boxShadow: "3px 3px 7px grey"}}>
-            <polygon points="0,50 0,0 50,0 50,50" className="bg"/>
-            <polygon points="0,50 0,0 50, 0 50, 50" className="borderEffect"/>
-         {/*   <polygon points="40, 50, 10, 25" className="borderEffect"/>
-            <polygon points="40, 0, 10, 25" className="borderEffect"/>
-            <polygon points="10, 23, 50, 25" className="borderEffect"/>*/}
-            {/* <foreignObject x="0" y="0" width="250" height="50">
+    return (// @ts-ignore
+        <svg width="250" height="50" {...other} ref={ref} style={{boxShadow: "5px 5px 10px blue"}}>
+            <polygon points="0,50 0,0 250,0 250,50" className="bg"/>
+            <polygon points="0,50 0,0 250,0 250,50" className="borderEffect"/>
+            <foreignObject x="0" y="0" width="250" height="50">
                 <div className="content">{children}</div>
-            </foreignObject>*/}
-            <ArrowBackIcon sx={{color: "#ff003f"}}/>
+            </foreignObject>
         </svg>
-    );//0,10 0,0 10,0 50,50
-    //10, 23, 50, 25
+    );
 });
 
-ButtonRoot.propTypes = {
-    children: PropTypes.node,
-};
+// @ts-ignore
+ButtonRoot.propTypes = {children: PropTypes.node,};
 
-const blue = {
-    50: 'rgba(255,113,113,0.49)', //rgba(83,213,21,0.58)
-    100: 'rgba(132,255,0,0.47)', //100: '#C2E0FF',
-    200: '#99CCF3',
-    400: '#3399FF',
-    500: '#007FFF',
-    600: '#ff0000', //600: '#0072E5',
-    800: '#004C99',
-    900: '#003A75', //900: '#003A75',
-};
+    const blue = {
+        50: 'rgba(83,213,21,0.58)',
+        100: 'rgba(132,255,0,0.47)', //100: '#C2E0FF',
+        200: '#99CCF3',
+        400: '#3399FF',
+        500: '#007FFF',
+        600: '#0072E5', //600: '#0072E5',
+        800: '#004C99',
+        900: '#003A75', //900: '#003A75',
+    };
 
-const CustomButtonRoot = styled(ButtonRoot)(
-    ({theme}) => `
+    const CustomButtonRoot = styled(ButtonRoot)(
+        ({theme}) => `
   overflow: visible;
   cursor: pointer;
   --main-color: ${theme.palette.mode === 'light' ? blue[600] : blue[100]};
@@ -48,7 +40,7 @@ const CustomButtonRoot = styled(ButtonRoot)(
   --active-color: ${theme.palette.mode === 'light' ? blue[100] : blue[800]};
   & polygon {
     fill: transparent;
-    transition: all 3000ms ease;
+    transition: all 1500ms ease;
     pointer-events: none;
   }
   
@@ -60,7 +52,7 @@ const CustomButtonRoot = styled(ButtonRoot)(
   }
   & .borderEffect {
     stroke: var(--main-color);
-    stroke-width: 2;
+    stroke-width: 5;
     stroke-dasharray: 150 600;
     stroke-dashoffset: 150;
     fill: transparent;
@@ -103,12 +95,19 @@ const CustomButtonRoot = styled(ButtonRoot)(
       margin: 0 5px;
     }
   }`,
-);
+    );
 
-const SvgButton = React.forwardRef(function SvgButton(props, ref) {
-    return <ButtonUnstyled {...props} component={CustomButtonRoot} ref={ref}/>;
-});
+    const SvgButton = React.forwardRef(function SvgButton(props, ref) {
+        return <ButtonUnstyled {...props} component={CustomButtonRoot} ref={ref}/>;
+    });
 
-export default function IconBackButton(props) {
-    return <div style={{width: "50px"}} onClick={props.onClick}><SvgButton>{props.title}</SvgButton></div>;
+    interface Props
+{
+    title: string;
+    onClick: React.MouseEventHandler<HTMLDivElement> | undefined
+}
+
+export default function LoginButton(props: Props) {
+    // @ts-ignore
+    return <div onClick={props.onClick}><SvgButton>{props.title}</SvgButton></div>;
 }
