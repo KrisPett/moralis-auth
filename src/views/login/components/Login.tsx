@@ -2,12 +2,12 @@ import {Grid} from "@mui/material";
 import React, {useState} from "react";
 import {makeStyles} from "@mui/styles";
 import ShowEmailLoginBtn from "./ShowEmailLoginBtn";
-import LoginButton from "../../../assets/themes/components/btns/LoginButton";
-import colors from "../../../assets/themes/utils/colors";
+import LoginButton from "../../../assets/themes/components/LoginButton";
+import lightThemeColors from "../../../assets/themes/utils/lightThemeColors";
 
 const useStyles = makeStyles({
     container: {
-        backgroundColor: colors.sidenav.button,
+        backgroundColor: lightThemeColors.primary.light,
         borderRadius: "20px",
         boxShadow: "10px 5px 10px grey"
     },

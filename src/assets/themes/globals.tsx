@@ -1,6 +1,6 @@
-import colors from "./utils/colors";
+import lightThemeColors from "./utils/lightThemeColors";
 
-const {info, dark} = colors;
+const {info, grey } = lightThemeColors;
 
 const globals = {
     "*, *::before, *::after": {
@@ -13,18 +13,20 @@ const globals = {
         mozOsxFontSmoothing: "grayscale",
     },
     code: {
-        fontFamily: "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace"
+        fontFamily: "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
     },
-    "a, a:link, a:visited": {
-        textDecoration: "none !important",
+    '*::-webkit-scrollbar': {
+        width: '20px'
     },
-    "a.link, .link, a.link:link, .link:link, a.link:visited, .link:visited": {
-        color: `${dark.main} !important`,
-        transition: "color 150ms ease-in !important",
+    '*::-webkit-scrollbar-thumb': {
+        backgroundColor: 'rgba(34,45,58,0.53)',
+        borderRadius: '20px',
+        border: '6px solid transparent',
+        backgroundClip: 'content-box'
     },
-    "a.link:hover, .link:hover, a.link:focus, .link:focus": {
-        color: `${info.main} !important`,
-    },
+    '::-webkit-scrollbar-thumb:hover': {
+        backgroundColor: 'rgba(69,86,100,0.52)'
+    }
 };
 
 export default globals;

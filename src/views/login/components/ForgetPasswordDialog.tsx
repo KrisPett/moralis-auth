@@ -6,8 +6,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 import {makeStyles} from "@mui/styles";
-import LoginEmailButton from "../../../assets/themes/components/btns/LoginEmailButton";
-import CancelButton from "../../../assets/themes/components/btns/CancelButton";
+import LoginEmailButton from "../../../assets/themes/components/LoginEmailButton";
+import CancelButton from "../../../assets/themes/components/CancelButton";
 import InputFieldStyle from "./InputFieldStyle";
 
 const useStyles = makeStyles(() => ({

@@ -3,8 +3,8 @@ import React, {useState} from "react";
 import {makeStyles} from "@mui/styles";
 import {Moralis} from "moralis";
 import ForgetPasswordDialog from "./ForgetPasswordDialog";
-import LoginEmailButton from "../../../assets/themes/components/btns/LoginEmailButton";
-import IconBackButton from "../../../assets/themes/components/btns/IconBackButton";
+import LoginEmailButton from "../../../assets/themes/components/LoginEmailButton";
+import IconBackButton from "../../../assets/themes/components/IconBackButton";
 import InputFieldStyle from "./InputFieldStyle";
 
 const useStyles = makeStyles({

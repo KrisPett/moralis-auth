@@ -1,7 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react';
 import {CircularProgress} from "@mui/material";
 import {RootModel} from "../../root/RootModel";
-import RootViewMock from "../../trash/RootViewMock";
 
 export const DashboardViewContext = createContext<RootModel | undefined>(undefined);
 
@@ -14,7 +13,7 @@ export const DashboardViewProvider = ({children}: Props) => {
     const [dashboardViewModel, setDashboardViewModel] = useState<RootModel>()
 
     // @ts-ignore
-    useEffect(() => setDashboardViewModel(RootViewMock), [])
+    useEffect(() =>  [])
 
     if (!dashboardViewModel) return <CircularProgress/>
 

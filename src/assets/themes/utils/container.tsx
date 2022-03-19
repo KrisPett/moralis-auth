@@ -7,7 +7,6 @@ const SM = `@media (min-width: ${sm}px)`;
 const MD = `@media (min-width: ${md}px)`;
 const LG = `@media (min-width: ${lg}px)`;
 const XL = `@media (min-width: ${xl}px)`;
-const XXL = `@media (min-width: ${xxl}px)`;
 
 const sharedClasses = {
     marginRight: "auto !important",
@@ -16,41 +15,37 @@ const sharedClasses = {
     position: "relative",
 };
 
-export default {
+const container = {
     [XS]: {
         ".MuiContainer-root": {
             ...sharedClasses,
-            maxWidth: "100% !important",
+            maxWidth: "400px !important",
         },
     },
     [SM]: {
         ".MuiContainer-root": {
             ...sharedClasses,
-            maxWidth: "100% !important",
+            maxWidth: "540px !important",
         },
     },
     [MD]: {
         ".MuiContainer-root": {
             ...sharedClasses,
-            maxWidth: "100% !important",
+            maxWidth: "720px !important",
         },
     },
     [LG]: {
         ".MuiContainer-root": {
             ...sharedClasses,
-            maxWidth: "100% !important",
+            maxWidth: "960px !important",
         },
     },
     [XL]: {
         ".MuiContainer-root": {
             ...sharedClasses,
-            maxWidth: "100% !important",
-        },
-    },
-    [XXL]: {
-        ".MuiContainer-root": {
-            ...sharedClasses,
-            maxWidth: "100% !important",
+            maxWidth: "1100px !important",
         },
     },
 };
+
+export default container;
