@@ -124,8 +124,11 @@ const SideMenu = (props: Props) => {
                                         </div>)
                                     })}
                                 </List>
-                                <Typography variant={"subtitle1"} fontWeight={"bold"} paddingLeft={2} mt={1}
-                                            style={{textAlign: "start"}}>
+                                <Typography variant={"subtitle1"}
+                                            fontWeight={"bold"}
+                                            paddingLeft={2} mt={1}
+                                            style={{textAlign: "start"}}
+                                >
                                     PLATFORMS
                                 </Typography>
                                 <Divider/>

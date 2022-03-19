@@ -44,7 +44,7 @@ export default createTheme({
         MuiGrid: {defaultProps: {}},
         MuiPaper: {
             defaultProps: {
-                elevation: themeMode === "light" ? 1 : 5,
+                elevation: themeMode === "light" ? 3 : 5,
 
             }
         },

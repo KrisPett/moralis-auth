@@ -1,13 +1,21 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import ButtonUnstyled, {buttonUnstyledClasses} from '@mui/base/ButtonUnstyled';
+import {forwardRef, LegacyRef} from 'react';
+import {buttonUnstyledClasses} from '@mui/base/ButtonUnstyled';
 import {styled} from '@mui/system';
+import lightThemeColors from "../utils/lightThemeColors";
+import darkThemeColors from "../utils/darkThemeColors";
 
-const ButtonRoot = React.forwardRef(function ButtonRoot(props, ref) {
+let themeMode = localStorage.getItem("theme")
+
+const ButtonRoot = forwardRef((props, ref: LegacyRef<SVGSVGElement> | undefined) => {
     const {children, ...other} = props;
 
-    return (// @ts-ignore
-        <svg width="250" height="50" {...other} ref={ref} style={{boxShadow: "5px 5px 10px blue"}}>
+    return (
+        <svg width="250"
+             height="50"
+             {...other}
+             ref={ref}
+             style={{boxShadow: `5px 5px 10px ${themeMode === "light" ? lightThemeColors.info.main : darkThemeColors.info.dark}`}}>
             <polygon points="0,50 0,0 250,0 250,50" className="bg"/>
             <polygon points="0,50 0,0 250,0 250,50" className="borderEffect"/>
             <foreignObject x="0" y="0" width="250" height="50">
@@ -17,27 +25,15 @@ const ButtonRoot = React.forwardRef(function ButtonRoot(props, ref) {
     );
 });
 
-// @ts-ignore
-ButtonRoot.propTypes = {children: PropTypes.node,};
-
-const blue = {
-    50: 'rgba(83,213,21,0.58)',
-    100: 'rgba(132,255,0,0.47)', //100: '#C2E0FF',
-    200: '#99CCF3',
-    400: '#3399FF',
-    500: '#007FFF',
-    600: '#0072E5', //600: '#0072E5',
-    800: '#004C99',
-    900: '#003A75', //900: '#003A75',
-};
-
-const CustomButtonRoot = styled(ButtonRoot)(
-    ({theme}) => `
+export const LoginButtonStyled = styled(ButtonRoot)(
+    ({theme}) => {
+        return (
+            `
   overflow: visible;
   cursor: pointer;
-  --main-color: ${theme.palette.mode === 'light' ? blue[600] : blue[100]};
-  --hover-color: ${theme.palette.mode === 'light' ? blue[50] : blue[900]};
-  --active-color: ${theme.palette.mode === 'light' ? blue[100] : blue[800]};
+  --main-color: ${themeMode === 'light' ? lightThemeColors.primary.main : darkThemeColors.primary.main};
+  --hover-color: ${themeMode === 'light' ? lightThemeColors.grey["50"] : darkThemeColors.grey["800"]};
+  --active-color: ${themeMode === 'light' ? lightThemeColors.grey["100"] : darkThemeColors.grey["800"]};
   & polygon {
     fill: transparent;
     transition: all 1500ms ease;
@@ -68,7 +64,7 @@ const CustomButtonRoot = styled(ButtonRoot)(
   }
   &:focus,
   &.${buttonUnstyledClasses.focusVisible} {
-    outline: 2px solid ${theme.palette.mode === 'dark' ? blue[400] : blue[200]};
+    outline: 0px solid transparent;
     outline-offset: 2px;
   }
   &.${buttonUnstyledClasses.active} { 
@@ -94,20 +90,7 @@ const CustomButtonRoot = styled(ButtonRoot)(
     & svg {
       margin: 0 5px;
     }
-  }`,
+  }`
+        )
+    }
 );
-
-const SvgButton = React.forwardRef(function SvgButton(props, ref) {
-    return <ButtonUnstyled {...props} component={CustomButtonRoot} ref={ref}/>;
-});
-
-interface Props
-{
-    title: string;
-    onClick: React.MouseEventHandler<HTMLDivElement> | undefined
-}
-
-export default function LoginButton(props: Props) {
-    // @ts-ignore
-    return <div onClick={props.onClick}><SvgButton>{props.title}</SvgButton></div>;
-}

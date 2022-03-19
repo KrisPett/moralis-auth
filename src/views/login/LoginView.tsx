@@ -1,13 +1,14 @@
-import React from 'react';
-import Login from "./components/Login";
+import {Container} from "@mui/material";
+import React, {useState} from "react";
+import {LoginButtonList} from "./components/LoginButtonList";
 
 const LoginView = () => {
     return (
-        <div >
-            <Login/>
+        <Container>
+            <LoginButtonList/>
+        </Container>
 
-        </div>
-    );
+    )
 };
 
 export default LoginView;
