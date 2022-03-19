@@ -49,8 +49,6 @@ const Header: FC<DrawerMenuI> = (props) => {
                 <Link href="#" ml={1} mr={1} hidden={isMobileSize}>Following</Link>
                 <Link href="#" ml={1} mr={1} hidden={isMobileSize}>Browse</Link>
                 <Box flexGrow={1}/>
-                <Typography variant={"h5"}>Crypto</Typography>
-                <Box flexGrow={1}/>
                 <Tooltip title="Calender">
                     <IconButton onClick={toggleRightSideMenu}>
                         <EventAvailableIcon/>

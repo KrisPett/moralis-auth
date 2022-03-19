@@ -112,8 +112,6 @@ const Profile = () => {
         setTextInputData({...textInputData, [textInputLabel.target.ariaLabel as string]: textInputLabel.target.value})
     }
 
-    console.log(textInputData)
-
     return (
         <Grid container>
             <Grid container justifyContent={'space-between'}>
@@ -150,7 +148,7 @@ const Profile = () => {
                                         type='file'
                                         sx={{display: 'none'}}
                                     />
-                                    <Button variant='contained' component='span'>
+                                    <Button component='span'>
                                         Ladda Upp Bild
                                     </Button>
                                 </label>
