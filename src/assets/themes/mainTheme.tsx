@@ -67,11 +67,17 @@ export default createTheme({
                 }
             }
         },
+        MuiTypography: {
+            defaultProps: {
+                sx: {color: themeMode === "light" ? lightThemeColors.text.primary : darkThemeColors.text.secondary}
+            }
+        },
         MuiButton: {
             defaultProps: {
                 variant: "outlined",
             }
         },
+        MuiSvgIcon: { /*{sx: {'&:hover': {backgroundColor: "yellow"}}*/},
         MuiToggleButton: {
             defaultProps: {
                 /* sx: {border: `1px solid ${(themeMode === "light") ? lightThemeColors.info.main : darkThemeColors.success.main}`}*/
@@ -114,9 +120,9 @@ export default createTheme({
         },
         MuiLink: {
             defaultProps: {
-                color: lightThemeColors.text.primary,
+                color: (themeMode === "light") ? lightThemeColors.text.primary : darkThemeColors.text.primary,
                 underline: "none",
-                sx: {'&:hover': {color: lightThemeColors.text.secondary}}
+                sx: {'&:hover': {color: (themeMode === "light") ? lightThemeColors.text.secondary : darkThemeColors.text.secondary}}
             }
         },
         MuiAccordion: {

@@ -20,7 +20,7 @@ const Root = () => {
                     <Header onMenuClick={() => setIsOpen(!isOpen)}/>
                     <SideMenu isOpen={isOpen} onClose={() => setIsOpen(false)}/>
                     <MainRoutes/>
-                    <Footer/>
+                 {/*   <Footer/>*/}
                 </Container>
             </BrowserRouter>
         </RootModelProvider>

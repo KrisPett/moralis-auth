@@ -33,20 +33,13 @@ export const RootModelProvider = ({children}: Props) => {
             messages: [{id: "1", title: "messageTitle1", content: "MessageContent1"}],
             notifyMessages:
                 [
-                    {id: "1", date:  getData(1), time: "09:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"
-                    },
-                    {id: "2", date: getData(2), time: "10:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"
-                    },
-                    {id: "3", date: getData(3), time: "11:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"
-                    },
-                    {id: "4", date: getData(4), time: "12:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"
-                    },
-                    {id: "5", date: getData(5), time: "13:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"
-                    },
-                    {id: "6", date: getData(7), time: "14:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"
-                    },
-                    {id: "7", date: getData(1), time: "15:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry.", author: "John Doe"
-                    },
+                    {id: "1", date:  getData(1), time: "09:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"},
+                    {id: "2", date: getData(2), time: "10:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"},
+                    {id: "3", date: getData(3), time: "11:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"},
+                    {id: "4", date: getData(4), time: "12:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"},
+                    {id: "5", date: getData(5), time: "13:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"},
+                    {id: "6", date: getData(7), time: "14:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", author: "John Doe"},
+                    {id: "7", date: getData(1), time: "15:00 - 12:00", title: "Meeting", description: "Description - Lorem Ipsum is simply dummy text of the printing and typesetting industry.", author: "John Doe"},
                 ],
             todo: [{id: 1, title: "todo1", checked: false}]
         }

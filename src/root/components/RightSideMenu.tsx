@@ -101,7 +101,6 @@ export const SideMenuCalenderPage = () => {
                     <StaticDatePicker
                         displayStaticWrapperAs="desktop"
                         openTo="day"
-                        //shouldDisableDate={isWeekend}
                         value={new Date()}
                         onChange={(newValue) => onChangeUpdateNotifyList(newValue)}
                         allowSameDateSelection={true}
@@ -267,10 +266,10 @@ const RightSideMenu: FC<I> = (props) => {
                 width: drawerWidth,
                 flexShrink: 0,
                 '& .MuiDrawer-paper': {
-                    marginTop: 9,
+                    marginTop: 8,
                     width: drawerWidth,
                     boxSizing: 'border-box',
-                    borderRadius: "10px"
+                    borderRadius: "0px"
                 },
             }}
             anchor="right"

@@ -1,8 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
+import {Link as RouterLink} from "react-router-dom";
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
 import Collapse from '@mui/material/Collapse';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
@@ -12,6 +12,7 @@ import {Button, Divider, Grid, ListItemButton} from '@mui/material';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useTheme from "@mui/material/styles/useTheme";
 import {ExpandMore} from "@mui/icons-material";
+import {LinkToDashboardView, LinkToProfileView} from "../../routes/MainRoutes";
 
 interface Props {
     isOpen?: boolean,
@@ -67,23 +68,35 @@ const SideMenu = (props: Props) => {
                             width: drawerWidth,
                             boxSizing: 'border-box',
                         },
-                        '& > div': {marginTop: {xs: 0, md: 9}}
+                        '& > div': {marginTop: {xs: 0, md: 8}}
                     }}
                 >
-                    <Grid container>
-                        <Grid item xs={12} >
+                    <Grid container p={1}>
+                        <Grid item xs={12}>
                             <Box overflow={"auto"} maxHeight={"85vh"}>
-                                <Typography variant={"subtitle1"} fontWeight={"bold"} paddingLeft={2} mt={1} style={{textAlign: "start"}}>
+                                <Typography variant={"subtitle1"} fontWeight={"bold"} paddingLeft={2} mt={2}
+                                            style={{textAlign: "start"}}>
                                     General
                                 </Typography>
                                 <Divider/>
                                 <List>
-                                    <ListItemButton sx={{padding: 2}}>Overview</ListItemButton>
-                                    <ListItemButton sx={{padding: 2}}>Analytics</ListItemButton>
-                                    <ListItemButton sx={{padding: 2}}>Finance</ListItemButton>
-                                    <ListItemButton sx={{padding: 2}}>Logistics</ListItemButton>
+                                    <ListItemButton sx={{padding: 2}}
+                                                    component={RouterLink}
+                                                    to={LinkToDashboardView()}
+                                    >
+                                        <Typography>Dashboard</Typography>
+                                    </ListItemButton>
+                                    <ListItemButton sx={{padding: 2}}>
+                                        <Typography>Analytics</Typography>
+                                    </ListItemButton>
+                                    <ListItemButton sx={{padding: 2}}>
+                                        <Typography>Finance</Typography></ListItemButton>
+                                    <ListItemButton sx={{padding: 2}}>
+                                        <Typography>Logistics</Typography>
+                                    </ListItemButton>
                                 </List>
-                                <Typography variant={"subtitle1"} fontWeight={"bold"} paddingLeft={2} mt={1} style={{textAlign: "start"}}>
+                                <Typography variant={"subtitle1"} fontWeight={"bold"} paddingLeft={2} mt={1}
+                                            style={{textAlign: "start"}}>
                                     Management
                                 </Typography>
                                 <Divider/>
@@ -92,7 +105,7 @@ const SideMenu = (props: Props) => {
                                         return (<div key={item.id}>
                                             <ListItemButton
                                                 onClick={() => onClickToggleOpen(item.id)}
-                                                sx={{padding: 2}}
+                                                sx={{padding: 2, '&:hover': {'.MuiSvgIcon-root': {color: theme.palette.primary.main}}}}
                                             >
                                                 <Typography variant={"subtitle1"}>{item.title}</Typography>
                                                 {collapseItemIfOpen(item) ? <ExpandMore/> : <KeyboardArrowRight/>}
@@ -100,29 +113,28 @@ const SideMenu = (props: Props) => {
                                             <Collapse in={collapseItemIfOpen(item)} unmountOnExit>
                                                 {item.subContent.map(unit => {
                                                     return (
-                                                        <div key={unit.id}>
-                                                            <ListItemButton sx={{padding: 2}}>
-                                                                <Typography ml={2} variant={"subtitle2"}>
-                                                                    {unit.title}
-                                                                </Typography>
-                                                            </ListItemButton>
-                                                        </div>
+                                                        <ListItemButton sx={{padding: 2}} key={unit.id}>
+                                                            <Typography ml={2} variant={"subtitle2"}>
+                                                                {unit.title}
+                                                            </Typography>
+                                                        </ListItemButton>
                                                     )
                                                 })}
                                             </Collapse>
                                         </div>)
                                     })}
                                 </List>
-                                <Typography variant={"subtitle1"} fontWeight={"bold"} paddingLeft={2} mt={1} style={{textAlign: "start"}}>
+                                <Typography variant={"subtitle1"} fontWeight={"bold"} paddingLeft={2} mt={1}
+                                            style={{textAlign: "start"}}>
                                     PLATFORMS
                                 </Typography>
                                 <Divider/>
                                 <List>
-                                    <ListItemButton sx={{padding: 2}}>Login</ListItemButton>
-                                    <ListItemButton sx={{padding: 2}}>Mail</ListItemButton>
-                                    <ListItemButton sx={{padding: 2}}>Chat</ListItemButton>
-                                    <ListItemButton sx={{padding: 2}}>Blog</ListItemButton>
-                                    <ListItemButton sx={{padding: 2}}>Calender</ListItemButton>
+                                    <ListItemButton sx={{padding: 2}}><Typography>Login</Typography></ListItemButton>
+                                    <ListItemButton sx={{padding: 2}}><Typography>Mail</Typography></ListItemButton>
+                                    <ListItemButton sx={{padding: 2}}><Typography>Chat</Typography></ListItemButton>
+                                    <ListItemButton sx={{padding: 2}}><Typography>Blog</Typography></ListItemButton>
+                                    <ListItemButton sx={{padding: 2}}><Typography>Calender</Typography></ListItemButton>
                                 </List>
                             </Box>
                         </Grid>

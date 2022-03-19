@@ -11,7 +11,7 @@ export default function Footer() {
     const [value, setValue] = React.useState(0);
 
     return (
-        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+        <Paper sx={{ position: 'fixed', bottom: 0, left: "15%", right: 0, width: "80%" }} elevation={3}>
             <Box sx={{}}>
                 <BottomNavigation
                     showLabels
