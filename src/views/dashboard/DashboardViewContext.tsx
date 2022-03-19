@@ -9,11 +9,7 @@ type Props = {
 };
 
 export const DashboardViewProvider = ({children}: Props) => {
-    // @ts-ignore
     const [dashboardViewModel, setDashboardViewModel] = useState<RootModel>()
-
-    // @ts-ignore
-    useEffect(() =>  [])
 
     if (!dashboardViewModel) return <CircularProgress/>
 

@@ -1,6 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
 import {ProfileViewModel} from "./ProfileViewModel";
-import {fetchProfile} from "./ProfileApi";
 
 export const ProfileModelContext = createContext<ProfileViewModel>({} as ProfileViewModel);
 

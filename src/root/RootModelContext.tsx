@@ -1,6 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
-import {RootModel, SubContent} from "./RootModel";
-import {fetchRoot} from "./RootApi";
+import {RootModel} from "./RootModel";
 
 export const RootModelContext = createContext<RootModel>({} as RootModel);
 

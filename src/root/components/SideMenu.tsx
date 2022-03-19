@@ -11,8 +11,8 @@ import {RootModelContext} from "../RootModelContext";
 import {Button, Divider, Grid, ListItemButton} from '@mui/material';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useTheme from "@mui/material/styles/useTheme";
-import {ExpandMore} from "@mui/icons-material";
-import {LinkToDashboardView, LinkToProfileView} from "../../routes/MainRoutes";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import {LinkToDashboardView} from "../../routes/MainRoutes";
 
 interface Props {
     isOpen?: boolean,

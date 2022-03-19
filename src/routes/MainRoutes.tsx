@@ -4,9 +4,9 @@ import LoginView from "../views/login/LoginView";
 import {Grid} from "@mui/material";
 import ProfileView from "../views/profile/ProfileView";
 import DashboardView from "../views/dashboard/DashboardView";
+
 export const LinkToDashboardView = () => "/";
 export const LinkToLoginView = () => "//";
-export const LinkToStoreView = (id: string) => "/store/" + id;
 export const LinkToProfileView = () => "/profile/";
 
 const MainRoutes = () => {
