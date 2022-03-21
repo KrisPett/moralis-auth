@@ -103,25 +103,35 @@ const SideMenu = (props: Props) => {
                                 <List>
                                     {rootData.sideMenuContent.map(item => {
                                         return (<div key={item.id}>
-                                            <ListItemButton
-                                                onClick={() => onClickToggleOpen(item.id)}
-                                                sx={{padding: 2, '&:hover': {'.MuiSvgIcon-root': {color: theme.palette.primary.main}}}}
-                                            >
-                                                <Typography variant={"subtitle1"}>{item.title}</Typography>
-                                                {collapseItemIfOpen(item) ? <ExpandMore/> : <KeyboardArrowRight/>}
-                                            </ListItemButton>
-                                            <Collapse in={collapseItemIfOpen(item)} unmountOnExit>
+                                                <ListItemButton
+                                                    onClick={() => onClickToggleOpen(item.id)}
+                                                    sx={{
+                                                        padding: 2,
+                                                        '&:hover': {'.MuiSvgIcon-root': {color: theme.palette.primary.main}}
+                                                    }}
+                                                >
+                                                    <Typography variant={"subtitle1"}>{item.title}</Typography>
+                                                    {collapseItemIfOpen(item) ? <ExpandMore/> : <KeyboardArrowRight/>}
+                                                </ListItemButton>
+
+
                                                 {item.subContent.map(unit => {
+
                                                     return (
-                                                        <ListItemButton sx={{padding: 2}} key={unit.id}>
-                                                            <Typography ml={2} variant={"subtitle2"}>
-                                                                {unit.title}
-                                                            </Typography>
-                                                        </ListItemButton>
+                                                        <Collapse in={collapseItemIfOpen(item)} unmountOnExit>
+                                                            <ListItemButton sx={{padding: 2}} key={unit.id}>
+                                                                <Typography ml={2} variant={"subtitle2"}>
+                                                                    {unit.title}
+                                                                </Typography>
+                                                            </ListItemButton>
+                                                        </Collapse>
+
                                                     )
                                                 })}
-                                            </Collapse>
-                                        </div>)
+
+
+                                            </div>
+                                        )
                                     })}
                                 </List>
                                 <Typography variant={"subtitle1"}
