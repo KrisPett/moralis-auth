@@ -34,8 +34,8 @@ on:
 env:
   AWS_REGION: eu-north-1
   ECR_REPOSITORY: moralis-auth
-  ECS_SERVICE: MoralisAuthService
-  ECS_CLUSTER: MoralisAuthCluster
+  ECS_SERVICE: Moralis-auth-service
+  ECS_CLUSTER: Moralis-auth
   ECS_TASK_DEFINITION: task-definition.json
   
   CONTAINER_NAME: MoralisAuth                                     
