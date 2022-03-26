@@ -27,7 +27,7 @@ export const LoginButtonList = () => {
                                       size={"small"}
                                       value={1}
                                       sx={{border: "0px solid transparent"}}>
-                            <ButtonUnstyled component={LoginButtonStyled}> Metamask Mobile(TEst)</ButtonUnstyled>
+                            <ButtonUnstyled component={LoginButtonStyled}> Metamask Mobile</ButtonUnstyled>
                         </ToggleButton>
                     </Grid>
                     <Grid item>
