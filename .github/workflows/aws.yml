@@ -38,7 +38,7 @@ env:
   ECS_CLUSTER: Moralis-auth
   ECS_TASK_DEFINITION: task-definition.json
   
-  CONTAINER_NAME: MoralisAuth                                     
+  CONTAINER_NAME: moralis-container
 
 jobs:
   deploy:
