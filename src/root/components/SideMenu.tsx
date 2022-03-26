@@ -113,23 +113,17 @@ const SideMenu = (props: Props) => {
                                                     <Typography variant={"subtitle1"}>{item.title}</Typography>
                                                     {collapseItemIfOpen(item) ? <ExpandMore/> : <KeyboardArrowRight/>}
                                                 </ListItemButton>
-
-
                                                 {item.subContent.map(unit => {
-
                                                     return (
-                                                        <Collapse in={collapseItemIfOpen(item)} unmountOnExit>
+                                                        <Collapse key={unit.id} in={collapseItemIfOpen(item)} unmountOnExit>
                                                             <ListItemButton sx={{padding: 2}} key={unit.id}>
                                                                 <Typography ml={2} variant={"subtitle2"}>
                                                                     {unit.title}
                                                                 </Typography>
                                                             </ListItemButton>
                                                         </Collapse>
-
                                                     )
                                                 })}
-
-
                                             </div>
                                         )
                                     })}
