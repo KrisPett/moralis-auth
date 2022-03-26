@@ -29,7 +29,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "473260546767.dkr.ecr.eu-north-1.amazonaws.com/moralis-auth:6a80a38dd36793fd351ab699596fb6906d5b386b",
+      "image": "473260546767.dkr.ecr.eu-north-1.amazonaws.com/moralis-auth",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -56,7 +56,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-north-1:473260546767:task-definition/DeploymentContainer:11",
+  "taskDefinitionArn": "arn:aws:ecs:eu-north-1:473260546767:task-definition/DeploymentContainer:1",
   "family": "DeploymentContainer",
   "requiresAttributes": [
     {
@@ -73,7 +73,7 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 11,
+  "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
