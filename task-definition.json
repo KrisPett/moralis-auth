@@ -16,7 +16,7 @@
       ],
       "command": null,
       "linuxParameters": null,
-      "cpu": 500,
+      "cpu": 0,
       "environment": [],
       "resourceRequirements": null,
       "ulimits": null,
@@ -26,10 +26,10 @@
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
-      "memoryReservation": 300,
+      "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "moralis:latest",
+      "image": "moralis-auth:latest",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -50,30 +50,23 @@
     }
   ],
   "placementConstraints": [],
-  "memory": null,
+  "memory": "128",
   "taskRoleArn": null,
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-north-1:473260546767:task-definition/moralis-task:1",
-  "family": "moralis-task",
-  "requiresAttributes": [
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
-    }
-  ],
+  "taskDefinitionArn": "arn:aws:ecs:eu-north-1:473260546767:task-definition/DeploymentContainer:17",
+  "family": "DeploymentContainer",
+  "requiresAttributes": [],
   "pidMode": null,
   "requiresCompatibilities": [
     "EC2"
   ],
   "networkMode": null,
   "runtimePlatform": null,
-  "cpu": null,
-  "revision": 1,
+  "cpu": "1024",
+  "revision": 17,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
