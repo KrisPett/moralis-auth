@@ -1,6 +1,6 @@
 <div align="center">
     <p align="center">
-      <img src="public/orange.png" alt="ChainQT3" width="200" height="200" />
+      <img src="public/orange.png" alt="ChainQT3" width="100" height="100" />
     </p>
 </div>
 
