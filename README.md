@@ -17,8 +17,9 @@ yarn install
 ```
 
 ### Make .env file in root directory
-```jsx
-`REACT_APP_MORALIS_APPLICATION_ID=... REACT_APP_MORALIS_SERVER_URL=...`
+```sh
+REACT_APP_MORALIS_APPLICATION_ID=...
+REACT_APP_MORALIS_SERVER_URL=...
 ```
 
 ```jsx
