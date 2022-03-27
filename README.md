@@ -4,9 +4,9 @@
     </p>
 </div>
 
-## Client URL [ChainQT3](https://chainqt3.com/)
-
 ---
+
+## Client URL [ChainQT3](https://chainqt3.com/)
 
 ## Install client
 
