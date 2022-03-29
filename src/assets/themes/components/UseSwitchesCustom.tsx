@@ -100,7 +100,7 @@ function MUISwitch(props: UseSwitchProps) {
 }
 
 if (!localStorage.getItem("checked")) {
-    localStorage.setItem("checked", "false")
+    localStorage.setItem("checked", "true")
 }
 
 export default function UseSwitchesCustom() {

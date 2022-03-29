@@ -7,7 +7,7 @@ import lightThemeColors from "./utils/lightThemeColors"
 import darkThemeColors from "./utils/darkThemeColors"
 
 if (!localStorage.getItem("theme")) {
-    localStorage.setItem("theme", "light")
+    localStorage.setItem("theme", "dark")
 }
 
 let themeMode = localStorage.getItem("theme")
