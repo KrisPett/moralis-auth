@@ -8,6 +8,8 @@ WORKDIR /app
 
 COPY package.json /app
 
+RUN apk add git
+
 RUN npm install
 
 COPY . /app
