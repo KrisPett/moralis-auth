@@ -19,7 +19,6 @@ export const LoginButtonList = () => {
         setIsEmailView(!isEmailView);
     }
 
-
     return (
         <Grid container justifyContent={"center"} marginTop={15}>
             {console.log(isAuthenticating)}
