@@ -5,10 +5,13 @@ import SideMenu from "./components/SideMenu";
 import Header from "./components/Header";
 import {Container, CssBaseline} from "@mui/material";
 import {RootModelProvider} from "./RootModelContext";
+import {useMoralis} from "react-moralis";
+import LoginView from "../views/login/LoginView";
 
 const Root = () => {
     const [isOpen, setIsOpen] = useState(false);
-
+    let {isAuthenticated} = useMoralis();
+    console.log(isAuthenticated)
     return (
         <RootModelProvider>
             <BrowserRouter>
@@ -16,7 +19,7 @@ const Root = () => {
                 <Container>
                     <Header onMenuClick={() => setIsOpen(!isOpen)}/>
                     <SideMenu isOpen={isOpen} onClose={() => setIsOpen(false)}/>
-                    <MainRoutes/>
+                    {isAuthenticated ? <MainRoutes/> : <LoginView/>}
                 </Container>
             </BrowserRouter>
         </RootModelProvider>

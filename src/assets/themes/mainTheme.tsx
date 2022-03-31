@@ -121,8 +121,11 @@ export default createTheme({
         MuiLink: {
             defaultProps: {
                 color: (themeMode === "light") ? lightThemeColors.text.primary : darkThemeColors.text.primary,
-                underline: "none",
-                sx: {'&:hover': {color: (themeMode === "light") ? lightThemeColors.text.secondary : darkThemeColors.text.secondary}}
+                underline: "hover",
+                sx: {
+                    '&:hover': {color: (themeMode === "light") ? lightThemeColors.text.secondary : darkThemeColors.text.secondary},
+                    cursor: "pointer",
+                }
             }
         },
         MuiAccordion: {

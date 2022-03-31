@@ -30,7 +30,7 @@ const InputFieldStyle = (props: any) => {
             noValidate
             onChange={props.onChange}
         >
-            <CssTextField label={props.title} type={props.type}/>
+            <CssTextField label={props.title} fullWidth type={props.type}/>
         </Box>
     );
 }
