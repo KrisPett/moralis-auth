@@ -11,7 +11,7 @@ import LoginView from "../views/login/LoginView";
 const Root = () => {
     const [isOpen, setIsOpen] = useState(false);
     let {isAuthenticated} = useMoralis();
-
+    console.log(isAuthenticated)
     return (
         <RootModelProvider>
             <BrowserRouter>

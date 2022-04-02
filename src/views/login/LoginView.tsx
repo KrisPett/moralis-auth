@@ -1,6 +1,6 @@
 import {Container} from "@mui/material";
 import React from "react";
-import {LoginButtonList} from "./components/LoginButtonList";
+import {LoginButtonsPage} from "./components/LoginButtonsPage";
 import Box from "@mui/material/Box";
 
 const LoginView = () => {
@@ -11,7 +11,7 @@ const LoginView = () => {
                 marginTop: 10,
                 minHeight: "90vh"
             }}>
-                <LoginButtonList/>
+                <LoginButtonsPage/>
             </Box>
         </Container>
 

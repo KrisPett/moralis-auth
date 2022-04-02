@@ -6,12 +6,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 import CancelButton from "../../../assets/themes/components/CancelButton";
-import InputFieldStyle from "./InputFieldStyle";
-import {Grid} from "@mui/material";
+import InputFieldStyle from "../../../assets/themes/components/InputFieldStyle";
+import {Alert, Collapse, Grid, TextField} from "@mui/material";
 import useTheme from "@mui/material/styles/useTheme";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import LoginResetButton from "../../../assets/themes/components/LoginResetButton";
 import Typography from "@mui/material/Typography";
+import {Moralis} from "moralis";
 
 function PaperComponent(props: any) {
     return (
@@ -24,35 +25,32 @@ function PaperComponent(props: any) {
     );
 }
 
-interface I {
-    openDialog: boolean;
-    setOpen: () => void
+interface Props {
+    isOpenDialog: boolean;
+    setOpenDialog: () => void
 }
 
-const ForgetPasswordDialog: FC<I> = (props) => {
+const ForgetPasswordDialog = (props: Props) => {
     let theme = useTheme();
     const isMobileSize = useMediaQuery(theme.breakpoints.down('md'));
+    const [email, setEmail] = useState("");
+    const [isOpenCollapse, setIsOpenCollapse] = useState(false);
 
-    const [email, setEmail] = useState();
-
-    /*   const handleClose = () => {
-           props.setOpen(false);
-       };*/
 
     const forgotPassword = () => {
-        /*   Moralis.User.requestPasswordReset(email)
-               .then(() => {
-                   handleClose()
-               }).catch((error) => {
-               // Show the error message somewhere
-               alert("Error: " + error.code + " " + error.message);*/
-
+        Moralis.User.requestPasswordReset(email)
+            .then(() => {
+               props.setOpenDialog()
+            }).catch((error) => {
+            console.log(error)
+            setIsOpenCollapse(!isOpenCollapse)
+        })
     };
 
     return (
         <Dialog
-            open={props.openDialog}
-            onClose={props.setOpen}
+            open={props.isOpenDialog}
+            onClose={props.setOpenDialog}
             PaperComponent={PaperComponent}
             fullWidth
             PaperProps={{sx: {padding: 3}}}
@@ -64,20 +62,43 @@ const ForgetPasswordDialog: FC<I> = (props) => {
                 WebkitTextFillColor: "transparent",
             }}
             >
-                <Typography textAlign={"center"} variant={"h5"}> Reset Password</Typography>
+                <Typography textAlign={"center"} fontSize={"x-large"}> Reset Password</Typography>
             </DialogTitle>
             <DialogActions>
                 <Grid container justifyContent={"center"} direction={"row"} rowSpacing={1}>
+                    <Grid container justifyContent={"end"}>
+                        <Grid item >
+                            <Grid item>
+                                <Collapse in={isOpenCollapse}>
+                                    <Alert severity="warning">
+                                        <Typography variant={"body2"}>
+                                            Invalid email
+                                        </Typography>
+                                    </Alert>
+                                </Collapse>
+                            </Grid>
+                            <Grid item visibility={"hidden"}>
+                                <Collapse in={!isOpenCollapse}>
+                                    <Alert severity="warning">
+                                        <Typography variant={"body2"}>
+                                            Invalid email
+                                        </Typography>
+                                    </Alert>
+                                </Collapse>
+                            </Grid>
+                        </Grid>
+                    </Grid>
                     <Grid item xs={12}>
                         <InputFieldStyle
                             title={"Enter Email"}
-                            onChange={(e: { target: { value: React.SetStateAction<undefined>; }; }) => setEmail(e.target.value)}
+                            onChange={e => setEmail(e.target.value)}
+                            onKeyPressEnter={() => console.log(3213)}
                             type={"email"}
                         />
                     </Grid>
                     <Grid container direction={"row"} justifyContent={"space-between"}>
                         <Grid item mt={3}>
-                            <CancelButton onClick={props.setOpen} title={"Cancel"}/>
+                            <CancelButton onClick={props.setOpenDialog} title={"Cancel"}/>
                         </Grid>
                         <Grid item mt={3}>
                             <LoginResetButton onClick={() => forgotPassword()} title={"Reset Password"}/>

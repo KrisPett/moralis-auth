@@ -9,7 +9,7 @@ import useTheme from "@mui/material/styles/useTheme";
 import {useMoralis} from "react-moralis";
 import EmailLoginBtn from "./EmailLoginBtn";
 
-export const LoginButtonList = () => {
+export const LoginButtonsPage = () => {
     let theme = useTheme();
     const isMobileSize = useMediaQuery(theme.breakpoints.down('md'));
     const {authenticate, isAuthenticated, isAuthenticating, user, account, logout} = useMoralis();
@@ -21,7 +21,6 @@ export const LoginButtonList = () => {
 
     return (
         <Grid container justifyContent={"center"} marginTop={15}>
-            {console.log(isAuthenticating)}
             {!isEmailView ?
                 <Paper sx={{padding: isMobileSize ? 5 : 20}}>
                     <Grid container justifyContent={"center"} spacing={5} direction={"column"}>

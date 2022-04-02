@@ -23,14 +23,25 @@ const CssTextField = styled(TextField)({
     },
 });
 
-const InputFieldStyle = (props: any) => {
+interface Props {
+    onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> | undefined;
+    onKeyPressEnter: () => void;
+    title: string;
+    type: string;
+}
+
+const InputFieldStyle = (props: Props) => {
     return (
         <Box
-            component="form"
-            noValidate
-            onChange={props.onChange}
+            onKeyPress={(e: { key: string; }) => {
+                if (e.key === "Enter") props.onKeyPressEnter()
+            }}
         >
-            <CssTextField label={props.title} fullWidth type={props.type}/>
+            <CssTextField
+                label={props.title}
+                fullWidth
+                type={props.type}
+                onChange={props.onChange}/>
         </Box>
     );
 }
