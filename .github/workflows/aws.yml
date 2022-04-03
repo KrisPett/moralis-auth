@@ -66,6 +66,7 @@ jobs:
         touch .env
         echo REACT_APP_MORALIS_APPLICATION_ID=${{ secrets.REACT_APP_MORALIS_APPLICATION_ID }} >> .env
         echo REACT_APP_MORALIS_SERVER_URL=${{ secrets.REACT_APP_MORALIS_SERVER_URL }} >> .env
+        echo REACT_APP_WEB3AUTH_CLIENT_ID=${{ secrets.REACT_APP_WEB3AUTH_CLIENT_ID }} >> .env
         cat .env
 
     - name: Build, tag, and push image to Amazon ECR
