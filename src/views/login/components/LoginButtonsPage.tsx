@@ -12,10 +12,10 @@ import EmailLoginBtn from "./EmailLoginBtn";
 export const LoginButtonsPage = () => {
     let theme = useTheme();
     const isMobileSize = useMediaQuery(theme.breakpoints.down('md'));
-    const {authenticate, isAuthenticated, isAuthenticating, user, account, logout} = useMoralis();
+    const {authenticate, isAuthenticated, isAuthenticating, user, account, logout, Moralis} = useMoralis();
     const [isEmailView, setIsEmailView] = useState(false);
 
-    const test = () =>  {
+    const test = () => {
         setIsEmailView(!isEmailView);
     }
 
@@ -32,19 +32,34 @@ export const LoginButtonsPage = () => {
                             </ToggleButton>
                         </Grid>
                         <Grid item>
-                            <ToggleButton onClick={() => authenticate({provider: "walletconnect", chainId: 56})}
-                                          size={"small"}
-                                          value={1}
-                                          sx={{border: "0px solid transparent"}}>
-                                <ButtonUnstyled component={LoginButtonStyled}> Metamask Mobile</ButtonUnstyled>
-                            </ToggleButton>
-                        </Grid>
-                        <Grid item>
                             <ToggleButton onClick={() => authenticate({type: "sol"})}
                                           size={"small"}
                                           value={1}
                                           sx={{border: "0px solid transparent"}}>
-                                <ButtonUnstyled component={LoginButtonStyled}> Phantom Mobile</ButtonUnstyled>
+
+                                <ButtonUnstyled component={LoginButtonStyled}> Phantom Desktop</ButtonUnstyled>
+                            </ToggleButton>
+                        </Grid>
+                        <Grid item>
+                            <ToggleButton onClick={() => authenticate(
+                                {
+                                    provider: "web3Auth",
+                                    clientId: process.env.REACT_APP_WEB3AUTH_CLIENT_ID
+                                },
+                            )
+                            }
+                                          size={"small"}
+                                          value={1}
+                                          sx={{border: "0px solid transparent"}}>
+                                <ButtonUnstyled component={LoginButtonStyled}>Web3Auth Desktop</ButtonUnstyled>
+                            </ToggleButton>
+                        </Grid>
+                        <Grid item>
+                            <ToggleButton onClick={() => authenticate({provider: "walletconnect", chainId: 56})}
+                                          size={"small"}
+                                          value={1}
+                                          sx={{border: "0px solid transparent"}}>
+                                <ButtonUnstyled component={LoginButtonStyled}>Mobile Auth</ButtonUnstyled>
                             </ToggleButton>
                         </Grid>
                         <Grid item>
