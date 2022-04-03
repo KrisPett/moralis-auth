@@ -25,7 +25,7 @@ export const LoginButtonsPage = () => {
                 <Paper sx={{padding: isMobileSize ? 5 : 20}}>
                     <Grid container justifyContent={"center"} spacing={5} direction={"column"}>
                         <Grid item>
-                            <ToggleButton onClick={() => authenticate({})}
+                            <ToggleButton onClick={() => authenticate({signingMessage: "This is a test application"})}
                                           size={"small"} value={1}
                                           sx={{border: "0px solid transparent"}}>
                                 <ButtonUnstyled component={LoginButtonStyled}> Metamask Desktop</ButtonUnstyled>
