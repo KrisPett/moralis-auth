@@ -4,14 +4,18 @@ import Button from "@mui/material/Button";
 import {useMoralis} from "react-moralis";
 
 const Dashboard = () => {
-    let {logout} = useMoralis();
+    let {logout, user } = useMoralis();
 
     return (
         <Container>
             <Grid container>
                 <Grid item>
-                    <Typography>dashboard</Typography>
+                    <Typography>{user?.getUsername()}</Typography>
+                    <Typography>{user?.getEmail()}</Typography>
+                    <Typography>{user?.getSessionToken()}</Typography>
+
                     <Button onClick={() => logout()}>logout</Button>
+
                 </Grid>
             </Grid>
         </Container>

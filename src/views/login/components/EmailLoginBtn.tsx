@@ -11,6 +11,7 @@ import {Box} from "@mui/system";
 import useTheme from "@mui/material/styles/useTheme";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
+import {useMoralis} from "react-moralis";
 
 interface Props {
     showWalletView: boolean,
@@ -18,6 +19,7 @@ interface Props {
 }
 
 const EmailLoginBtn = (props: Props) => {
+    const {authenticate} = useMoralis();
     let theme = useTheme();
     const isMobileSize = useMediaQuery(theme.breakpoints.down('md'));
     const [openDialog, setOpenDialog] = useState(false);
@@ -121,6 +123,22 @@ const EmailLoginBtn = (props: Props) => {
                                           value={1}
                                           sx={{border: "0px solid transparent"}}>
                                 <ButtonUnstyled component={LoginButtonStyled}>Sign in</ButtonUnstyled>
+                            </ToggleButton>
+                        </Grid>
+                        <Grid item>
+                            <ToggleButton onClick={() => authenticate(
+                                {
+                                    provider: "magicLink",
+                                    email: inputData.email,
+                                    apiKey: process.env.REACT_APP_MAGIC_PUBLISHABLE_API_KEY,
+                                    network: "kovan",
+                                },
+                            )
+                            }
+                                          size={"small"}
+                                          value={1}
+                                          sx={{border: "0px solid transparent"}}>
+                                <ButtonUnstyled component={LoginButtonStyled}>Magic Desktop</ButtonUnstyled>
                             </ToggleButton>
                         </Grid>
                         <Grid item>
