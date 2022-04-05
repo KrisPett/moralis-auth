@@ -23,6 +23,7 @@ export default function MainRouter() {
             <Route path="dashboard" element={<ProtectedRoute><MainStyle/></ProtectedRoute>}>
                 <Route path={LinkToOverviewView()} element={<DashboardView/>}/>
                 <Route path={LinkToProfileView()} element={<ProfileView/>}/>
+                <Route path="/dashboard" element={<Navigate to={LinkToOverviewView()}/>}/>
             </Route>
             <Route path={"/"} element={<LoginStyle/>}>
                 <Route path={LinkToLoginView()}
