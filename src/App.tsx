@@ -1,15 +1,18 @@
 import React from 'react';
-import {ThemeProvider} from "@mui/material";
-import Root from "./root/Root";
+import {Container, CssBaseline, ThemeProvider} from "@mui/material";
 import mainTheme from "./assets/themes/mainTheme";
-import {useMoralis} from "react-moralis";
-import {useNavigate} from "react-router-dom";
+import {RootModelProvider} from "./root/RootModelContext";
+import MainRoutes from "./routes/MainRoutes";
 
 function App() {
-
     return (
         <ThemeProvider theme={mainTheme}>
-            <Root/>
+            <RootModelProvider>
+                <Container>
+                    <CssBaseline/>
+                    <MainRoutes/>
+                </Container>
+            </RootModelProvider>
         </ThemeProvider>
     );
 }

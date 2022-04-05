@@ -18,7 +18,7 @@ const TableRowField: FC<ITableRowField> = ({rowTitle, rowValue}) => {
     return (
         <CardActionArea sx={{
             cursor: "pointer",
-            transition: theme.transitions.create(["backgroundColor", "transform"], {duration: theme.transitions.duration.standard}),
+            transition: theme.transitions.create(["background-color", "transform"], {duration: theme.transitions.duration.standard}),
             "&:hover": {
                 transform: "scale(1.1)"
             }
@@ -62,7 +62,7 @@ const Dashboard = () => {
                     </Grid>
                 </Paper>
             </Box>
-            : <></>
+            : <><Typography>test</Typography></>/*TODO*/
     )
 };
 

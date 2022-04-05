@@ -15,10 +15,6 @@ export const LoginButtonsPage = () => {
     const {authenticate, isAuthenticated, isAuthenticating, user, account, logout, Moralis} = useMoralis();
     const [isEmailView, setIsEmailView] = useState(false);
 
-    const test = () => {
-        setIsEmailView(!isEmailView);
-    }
-
     return (
         <Grid container justifyContent={"center"} marginTop={15}>
             {!isEmailView ?
@@ -45,9 +41,7 @@ export const LoginButtonsPage = () => {
                                 {
                                     provider: "web3Auth",
                                     clientId: process.env.REACT_APP_WEB3AUTH_CLIENT_ID
-                                },
-                            )
-                            }
+                                },)}
                                           size={"small"}
                                           value={1}
                                           sx={{border: "0px solid transparent"}}>
@@ -73,7 +67,7 @@ export const LoginButtonsPage = () => {
                     </Grid>
                 </Paper>
                 :
-                <EmailLoginBtn showWalletView={isEmailView} setIsEmailView={test}/>
+                <EmailLoginBtn showWalletView={isEmailView} setIsEmailView={() => setIsEmailView(!isEmailView)}/>
             }
 
 

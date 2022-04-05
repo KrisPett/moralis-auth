@@ -12,7 +12,7 @@ import {Button, Divider, Grid, ListItemButton} from '@mui/material';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useTheme from "@mui/material/styles/useTheme";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import {LinkToDashboardView} from "../../routes/MainRoutes";
+import {LinkToOverviewView} from "../../routes/MainRoutes";
 
 interface Props {
     isOpen?: boolean,
@@ -82,7 +82,7 @@ const SideMenu = (props: Props) => {
                                 <List>
                                     <ListItemButton sx={{padding: 2}}
                                                     component={RouterLink}
-                                                    to={LinkToDashboardView()}
+                                                    to={LinkToOverviewView()}
                                     >
                                         <Typography>Dashboard</Typography>
                                     </ListItemButton>
