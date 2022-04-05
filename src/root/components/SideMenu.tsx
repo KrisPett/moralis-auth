@@ -115,7 +115,8 @@ const SideMenu = (props: Props) => {
                                                 </ListItemButton>
                                                 {item.subContent.map(unit => {
                                                     return (
-                                                        <Collapse key={unit.id} in={collapseItemIfOpen(item)} unmountOnExit>
+                                                        <Collapse key={unit.id} in={collapseItemIfOpen(item)}
+                                                                  unmountOnExit>
                                                             <ListItemButton sx={{padding: 2}} key={unit.id}>
                                                                 <Typography ml={2} variant={"subtitle2"}>
                                                                     {unit.title}
@@ -146,7 +147,8 @@ const SideMenu = (props: Props) => {
                             </Box>
                         </Grid>
                     </Grid>
-                    <Grid item xs={12} mt={2}>
+                    <Box flexGrow={1}/>
+                    <Grid item xs={12} mb={8}>
                         <Button fullWidth>Buy Crypto</Button>
                     </Grid>
                 </Drawer>
