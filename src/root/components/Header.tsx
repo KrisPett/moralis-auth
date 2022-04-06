@@ -7,7 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
-import {Link, Tooltip} from "@mui/material";
+import {Button, Grid, Link, Tooltip} from "@mui/material";
 import {AccountCircle} from "@mui/icons-material";
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import UseSwitchesCustom from "../../assets/themes/components/UseSwitchesCustom";
@@ -16,7 +16,8 @@ import RightSideMenu from "./RightSideMenu";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useTheme from "@mui/material/styles/useTheme";
 import {ToggleButton} from "@mui/lab";
-import {LinkToOverviewView, LinkToProfileView} from "../../routes/MainRoutes";
+import {LinkToDashboardOverviewView, LinkToOverviewView, LinkToProfileView} from "../../routes/MainRoutes";
+import IconStyle from "../../assets/themes/components/IconStyle";
 
 interface DrawerMenuI {
     onMenuClick: () => void,
@@ -42,7 +43,7 @@ const Header: FC<DrawerMenuI> = (props) => {
                     value={"check"}
                     selected={false}
                     sx={{border: "2px solid transparent"}}
-                    component={RouterLink} to={LinkToOverviewView()}
+                    component={RouterLink} to={LinkToDashboardOverviewView()}
                 >
                     <HomeIcon color="action"/>
                 </ToggleButton>
@@ -55,9 +56,9 @@ const Header: FC<DrawerMenuI> = (props) => {
                     </IconButton>
                 </Tooltip>
                 <Tooltip title="Profile">
-                    <IconButton size="large" component={RouterLink} to={LinkToProfileView()}>
-                        <AccountCircle/>
-                    </IconButton>
+                    <Link component={RouterLink} to={LinkToProfileView()}>
+                        <IconStyle/>
+                    </Link>
                 </Tooltip>
                 <UseSwitchesCustom/>
             </Toolbar>

@@ -10,6 +10,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import {useMoralis} from "react-moralis";
 
 /* ROUTE LINKS */
+export const LinkToDashboardOverviewView = () => "/dashboard/overview";
 export const LinkToOverviewView = () => "overview";
 export const LinkToProfileView = () => "profile";
 export const LinkToLoginView = () => "/login";
