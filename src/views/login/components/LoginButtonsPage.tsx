@@ -8,6 +8,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import useTheme from "@mui/material/styles/useTheme";
 import {useMoralis} from "react-moralis";
 import EmailLoginBtn from "./EmailLoginBtn";
+import CryptoPayStyle from "../../../assets/themes/components/CryptoPayStyle";
 
 export const LoginButtonsPage = () => {
     let theme = useTheme();
@@ -69,8 +70,6 @@ export const LoginButtonsPage = () => {
                 :
                 <EmailLoginBtn showWalletView={isEmailView} setIsEmailView={() => setIsEmailView(!isEmailView)}/>
             }
-
-
         </Grid>
     );
 };

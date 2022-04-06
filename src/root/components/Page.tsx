@@ -12,7 +12,7 @@ const Page = forwardRef(({ children, title, ...other }: Props, ref) => (
         <HelmetProvider>
             <Helmet>
                 <title>{title}</title>
-                <link rel="icon" type="image/x-icon" href="../../../public/orange.png"/>
+               {/* <link rel="icon" type="image/x-icon" href="../../../public/orange.png"/>*/}
             </Helmet>
             {children}
         </HelmetProvider>

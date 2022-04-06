@@ -8,11 +8,12 @@ import Collapse from '@mui/material/Collapse';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import {RootModel} from "../RootModel";
 import {RootModelContext} from "../RootModelContext";
-import {Button, Divider, Grid, ListItemButton} from '@mui/material';
+import {Button, Divider, Grid, ListItemButton, Popover} from '@mui/material';
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useTheme from "@mui/material/styles/useTheme";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import {LinkToOverviewView} from "../../routes/MainRoutes";
+import {LinkToLoginView, LinkToOverviewView} from "../../routes/MainRoutes";
+import CryptoPayStyle from "../../assets/themes/components/CryptoPayStyle";
 
 interface Props {
     isOpen?: boolean,
@@ -24,8 +25,8 @@ interface TmpArrayCollapseList {
 }
 
 const SideMenu = (props: Props) => {
+    const theme = useTheme();
     const rootData = useContext<RootModel>(RootModelContext)
-    let theme = useTheme();
     const toggleDrawerVariant = useMediaQuery(theme.breakpoints.down('md'));
     const [coursesList, setCoursesList] = useState<TmpArrayCollapseList>({settings: [{id: "", open: false}]});
     const drawerWidth = 240;
@@ -138,7 +139,11 @@ const SideMenu = (props: Props) => {
                                 </Typography>
                                 <Divider/>
                                 <List>
-                                    <ListItemButton sx={{padding: 2}}><Typography>Login</Typography></ListItemButton>
+                                    <ListItemButton sx={{padding: 2}}
+                                                    component={RouterLink}
+                                                    to={LinkToLoginView()}>
+                                        <Typography>Login</Typography>
+                                    </ListItemButton>
                                     <ListItemButton sx={{padding: 2}}><Typography>Mail</Typography></ListItemButton>
                                     <ListItemButton sx={{padding: 2}}><Typography>Chat</Typography></ListItemButton>
                                     <ListItemButton sx={{padding: 2}}><Typography>Blog</Typography></ListItemButton>
@@ -149,7 +154,7 @@ const SideMenu = (props: Props) => {
                     </Grid>
                     <Box flexGrow={1}/>
                     <Grid item xs={12} mb={8}>
-                        <Button fullWidth>Buy Crypto</Button>
+                        <BasicPopover/>
                     </Grid>
                 </Drawer>
             </Box>
@@ -158,3 +163,42 @@ const SideMenu = (props: Props) => {
 }
 
 export default SideMenu;
+
+const BasicPopover = () => {
+    const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
+
+    return (
+        <div>
+            <Button fullWidth onClick={handleClick}>
+                Open Popover
+            </Button>
+            <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                }}
+                transformOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                }}
+            >
+                <CryptoPayStyle/>
+            </Popover>
+        </div>
+    );
+}

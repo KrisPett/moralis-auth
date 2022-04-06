@@ -1,6 +1,6 @@
 <div align="center">
     <p align="center">
-      <img src="public/orange.png" alt="ChainQT3" width="100" height="100" />
+      <img src="src/assets/themes/components/orange.png" alt="ChainQT3" width="100" height="100" />
     </p>
 </div>
 

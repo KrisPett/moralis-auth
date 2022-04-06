@@ -12,15 +12,15 @@ import {useMoralis} from "react-moralis";
 /* ROUTE LINKS */
 export const LinkToOverviewView = () => "overview";
 export const LinkToProfileView = () => "profile";
-export const LinkToLoginView = () => "login";
+export const LinkToLoginView = () => "/login";
 export const LinkTo404NotFound = () => "404";
 /* ROUTE LINKS */
 
 export default function MainRouter() {
-    let {isAuthenticated} = useMoralis();
+    const {isAuthenticated} = useMoralis();
     return (
         <Routes>
-            <Route path="dashboard" element={<ProtectedRoute><MainStyle/></ProtectedRoute>}>
+            <Route path="/dashboard" element={<ProtectedRoute><MainStyle/></ProtectedRoute>}>
                 <Route path={LinkToOverviewView()} element={<DashboardView/>}/>
                 <Route path={LinkToProfileView()} element={<ProfileView/>}/>
                 <Route path="/dashboard" element={<Navigate to={LinkToOverviewView()}/>}/>
