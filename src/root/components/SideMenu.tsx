@@ -181,7 +181,7 @@ const BasicPopover = () => {
     return (
         <div>
             <Button fullWidth onClick={handleClick}>
-                Open Popover
+                Buy Crypto
             </Button>
             <Popover
                 id={id}

@@ -7,16 +7,14 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
-import {Button, Grid, Link, Tooltip} from "@mui/material";
-import {AccountCircle} from "@mui/icons-material";
+import {Link, Tooltip} from "@mui/material";
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import UseSwitchesCustom from "../../assets/themes/components/UseSwitchesCustom";
-import Typography from '@mui/material/Typography';
 import RightSideMenu from "./RightSideMenu";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useTheme from "@mui/material/styles/useTheme";
 import {ToggleButton} from "@mui/lab";
-import {LinkToDashboardOverviewView, LinkToOverviewView, LinkToProfileView} from "../../routes/MainRoutes";
+import {LinkToDashboardOverviewView, LinkToProfileView} from "../../routes/MainRoutes";
 import IconStyle from "../../assets/themes/components/IconStyle";
 
 interface DrawerMenuI {
