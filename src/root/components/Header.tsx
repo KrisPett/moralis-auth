@@ -48,12 +48,12 @@ const Header: FC<DrawerMenuI> = (props) => {
                 <Link href="#" ml={1} mr={1} hidden={isMobileSize}>Following</Link>
                 <Link href="#" ml={1} mr={1} hidden={isMobileSize}>Browse</Link>
                 <Box flexGrow={1}/>
-                <Tooltip title="Calender">
-                    <IconButton onClick={toggleRightSideMenu}>
-                        <EventAvailableIcon/>
+                <Tooltip title="Calender" sx={{marginRight: 1}}>
+                    <IconButton onClick={toggleRightSideMenu} size={"small"}>
+                        <EventAvailableIcon fontSize={"large"}/>
                     </IconButton>
                 </Tooltip>
-                <Tooltip title="Profile">
+                <Tooltip title="Profile" sx={{marginRight: 1}}>
                     <Link component={RouterLink} to={LinkToProfileView()}>
                         <IconStyle/>
                     </Link>
